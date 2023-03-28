@@ -10,3 +10,4 @@ even though the source and destination objects are the same. This would lead to 
 The try-catch block is used to handle exceptions that might occur during the execution of the code within the try block. By using try-catch, we can catch exceptions and take appropriate action, such as displaying an error message or gracefully exiting the program, instead of allowing the program to crash due to an unhandled exception.
 
 In the SmartDog assignment operator, the try-catch block is used to handle potential memory allocation issues.
+If the try-catch block was not present, and memory allocation failed, the thrown exception would not be caught, resulting in the program crashing due to the unhandled exception. This would lead to an undesirable user experience and potential loss of data.
