@@ -76,8 +76,8 @@ int main()
 {
 
 	Collar* collarPink = new Collar(Collar::TYPE::LEATHER, "Pink");
-
 	Collar* collarBlue = new Collar(Collar::TYPE::PLASTIC, "Blue");
+
 	Dog coco(collarPink, "Coco");
 	Dog miko(collarBlue, "Miko");
 	Dog Candy(collarBlue, "Candy");
