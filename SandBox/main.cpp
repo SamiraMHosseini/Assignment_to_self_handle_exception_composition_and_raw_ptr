@@ -84,8 +84,8 @@ int main()
 	Dog Zizi(Candy);
 
 	{
-		Dog CC(collarBlue, "Candy");
-		CC = miko;
+		Dog candy(collarBlue, "Candy");
+		candy = miko;
 	}
 
 	std::cout << miko.dogName << '\n';
