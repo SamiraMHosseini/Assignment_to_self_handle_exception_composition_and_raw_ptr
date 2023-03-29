@@ -25,7 +25,7 @@ public:
 	
 
 	Dog(const Collar::TYPE& type_, const std::string colorName_, const std::string dogName_) :
-		pCollar(new Collar(type_, colorName_)), dogName(dogName_)
+		poCollar(new Collar(type_, colorName_)), dogName(dogName_)
 	{
 
 	}
@@ -37,9 +37,9 @@ public:
 
 			try
 			{				
-				Collar* pOrigCollar = new Collar(dog.pCollar->type, dog.pCollar->colorName);
-				delete this->pCollar;
-				this->pCollar = pOrigCollar;
+				Collar* pOrigCollar = new Collar(dog.poCollar->type, dog.poCollar->colorName);
+				delete this->poCollar;
+				this->poCollar = pOrigCollar;
 				this->dogName = dog.dogName;
 				
 			}
@@ -54,15 +54,22 @@ public:
 	}
 	Dog(const Dog& dog)
 	{
-		this->pCollar = new Collar(dog.pCollar->type, dog.pCollar->colorName);
+		this->poCollar = new Collar(dog.poCollar->type, dog.poCollar->colorName);
 		this->dogName = dog.dogName;
 	}
 	~Dog()
 	{
-		delete this->pCollar;
+		delete this->poCollar;
 	}
-
-	Collar* pCollar; //Composition relationship between Dog and Collar
+	//Composition relationship between Dog and Collar
+	//The pointer is owned by the class Dog
+	/*
+	
+	This means that the Dog class contains an instance of the Collar class as one of its properties or attributes. 
+	In other words, a Dog has a Collar, and the Collar belongs to that specific Dog. 
+	This is a form of "has-a" relationship, where one class contains an instance of another class.
+	*/
+	Collar* poCollar; 
 	std::string dogName;
 };
 
