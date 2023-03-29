@@ -1,9 +1,9 @@
 ﻿#include <iostream>
 #include <memory>
 
-class Collar
+struct Collar
 {
-public:
+
 	enum class TYPE
 	{
 		PLASTIC,
@@ -22,12 +22,7 @@ class Dog
 {
 
 public:
-	Dog(Collar* pCollar_, const std::string dogName_) :
-
-		Dog(pCollar_->type, pCollar_->colorName, dogName_)
-	{
-
-	}
+	
 
 	Dog(const Collar::TYPE& type_, const std::string colorName_, const std::string dogName_) :
 		pCollar(new Collar(type_, colorName_)), dogName(dogName_)
@@ -67,7 +62,7 @@ public:
 		delete this->pCollar;
 	}
 
-	Collar* pCollar; //A dog has a Collar object
+	Collar* pCollar; //Composition relationship between Dog and Collar
 	std::string dogName;
 };
 
@@ -75,29 +70,27 @@ public:
 int main()
 {
 
-	Collar* collarPink = new Collar(Collar::TYPE::LEATHER, "Pink");
-	Collar* collarBlue = new Collar(Collar::TYPE::PLASTIC, "Blue");
+	
+	Dog coco(Collar::TYPE::LEATHER, "Pink", "Coco");
+	Dog miko(Collar::TYPE::LEATHER, "Blue", "Miko");
+	Dog candy(Collar::TYPE::LEATHER, "Yellow", "Candy");
 
-	Dog coco(collarPink, "Coco");
-	Dog miko(collarBlue, "Miko");
-	Dog Candy(collarBlue, "Candy");
-	Dog Zizi(Candy);
+	Dog zizi(coco);
 
 	{
-		Dog candy(collarBlue, "Candy");
-		candy = miko;
+		Dog yummy(Collar::TYPE::LEATHER, "Yellow", "Yummy");
+		yummy = miko;
 	}
-
+	miko = zizi;
+	coco = candy;
 	std::cout << miko.dogName << '\n';
 	miko = miko;
 	std::cout << miko.dogName << '\n';
+	std::cout << coco.dogName << '\n';
+	coco = coco;
+	std::cout << coco.dogName << '\n';
 
 
-	Collar c2(Collar::TYPE::LEATHER, "Yellow");
-	Dog coco2(&c2, "Yummy");
-
-	delete collarBlue;
-	delete collarPink;
 
 	return 0;
 }
