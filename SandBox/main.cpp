@@ -69,7 +69,7 @@ public:
 	In other words, a Dog has a Collar, and the Collar belongs to that specific Dog. 
 	This is a form of "has-a" relationship, where one class contains an instance of another class.
 	*/
-	Collar* poCollar; 
+	Collar* poCollar; //pointer owned
 	std::string dogName;
 };
 
