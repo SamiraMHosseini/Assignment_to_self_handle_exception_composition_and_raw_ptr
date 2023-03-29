@@ -13,7 +13,7 @@ In the SmartDog assignment operator, the try-catch block is used to handle poten
 
 If the try-catch block was not present, and memory allocation failed, the thrown exception would not be caught, resulting in the program crashing due to the unhandled exception. This would lead to an undesirable user experience and potential loss of data.
 
-# Relationship (Compoisiton or Aggregation)
+# Relationship (Composition or Aggregation)
 
 The choice between composition and aggregation in your Dog and Collar design depends on the specific requirements of your program, but I can give you some guidance based on typical scenarios:
 
